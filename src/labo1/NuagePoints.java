@@ -27,17 +27,10 @@ public class NuagePoints extends Dessin {
         for (int i = 0; i < nbPoints; i++) {
             try {
                 Point p = new Point();
-
-                try {
-                    p.lire(reader);
-                    if(!points.contains(p)) {
-                        points.add(p);
-                    }
-                } catch (NoSuchElementException e){
-                    nbPoints = i+1;
-                    break;
+                p.lire(reader);
+                if(!points.contains(p)) {
+                    points.add(p);
                 }
-
             } catch (NoSuchElementException e) {
                 // reinitialiser bon nombre de pts
                 nbPoints = i+1;

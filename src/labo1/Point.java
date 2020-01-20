@@ -1,7 +1,6 @@
 package labo1;
 
 import java.awt.*;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Point extends Dessin {
@@ -40,23 +39,8 @@ public class Point extends Dessin {
      */
     @Override
     public void lire(Scanner reader) {
-        // store reader value in nextInt
-        // avoid checking in condition
-        // which also changes value of reader
-        int nextInt = reader.nextInt();
-        if(nextInt<0) {
-            throw new NoSuchElementException("Reached new dessin code.");
-        } else {
-            x = nextInt;
-
-        }
-        nextInt = reader.nextInt();
-        if(nextInt<0) {
-            throw new NoSuchElementException("Reached new dessin code.");
-        } else{
-            y = nextInt;
-        }
-
+        x = reader.nextInt();
+        y = reader.nextInt();
     }
 
     public String toString() {
