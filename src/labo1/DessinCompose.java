@@ -16,44 +16,56 @@ public class DessinCompose extends Dessin {
         put(-4, new Polygone());
     }};
 
-    public DessinCompose(){
-        nbDessins=0;
+    // use to compare only same type of dessins
+    // when checking if already in list
+    // must only compare same types
+    private ArrayList<Dessin> filterDessinByType(Dessin d) {
+        ArrayList<Dessin> filteredDessins = new ArrayList<Dessin>();
+        for (int j = 0; j < dessins.size(); j++) {
+            Dessin toCheckDessin = dessins.get(j);
+            if (toCheckDessin.getClass() == d.getClass()) {
+                filteredDessins.add(toCheckDessin);
+            }
+        }
+        return filteredDessins;
+    }
+
+
+    public DessinCompose() {
+        nbDessins = 0;
         dessins = new ArrayList<Dessin>();
     }
 
     @Override
-    public void dessiner(Graphics2D graph){
-        for(int i=0; i<dessins.size(); i++){
+    public void dessiner(Graphics2D graph) {
+        for (int i = 0; i < dessins.size(); i++) {
             dessins.get(i).dessiner(graph);
         }
     }
 
     @Override
-    public void lire(Scanner reader){
+    public void lire(Scanner reader) {
+
         nbDessins = reader.nextInt();
-        for(int i=0; i<nbDessins; i++){
+        for (int i = 0; i < nbDessins; i++) {
             try {
                 Dessin d = dessinsTypes.get(reader.nextInt());
                 d.lire(reader);
-                dessins.add(d);
 
-                // check if dessin already in list
                 // calls specific dessin equals methods
-                // must only compare same types
-                try{
-                    if(!dessins.contains(d)){
-                        dessins.add(d);
-                    }
-                } catch (ClassCastException e){};
+                // enables only adding once same drawing in file
+                if(!filterDessinByType(d).contains(d)){
+                    dessins.add(d);
+                }
 
-            } catch (NoSuchElementException e){
-                nbDessins = i+1;
+            } catch (NoSuchElementException e) {
+                nbDessins = i + 1;
                 break;
             }
         }
     }
 
-    public String toString(){
+    public String toString() {
         String msg = "";
         for (int i = 0; i < nbDessins; i++) {
             try {

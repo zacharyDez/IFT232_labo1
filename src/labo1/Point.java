@@ -50,14 +50,14 @@ public class Point extends Dessin {
     // to override, must pass Object to equals
     // cast afterwards
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         // si object comparer avec lui-meme, retourner vrai
-        if (o == this){
+        if (o == this) {
             return true;
         }
 
         // verifier si l'objet est de type point
-        if (!(o instanceof Point)){
+        if (!(o instanceof Point)) {
             return false;
         }
 
@@ -65,7 +65,7 @@ public class Point extends Dessin {
         Point p = (Point) o;
 
         // verifier coordonnees des deux objets
-        if((x == p.x) && (y == p.y)){
+        if ((x == p.x) && (y == p.y)) {
             return true;
         }
 

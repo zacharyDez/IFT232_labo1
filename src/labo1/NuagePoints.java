@@ -51,6 +51,7 @@ public class NuagePoints extends Dessin {
             try {
                 msg += points.get(i).toString() + "\n";
             } catch (IndexOutOfBoundsException e) {
+                nbPoints = i + 1;
                 break;
             }
         }
@@ -63,10 +64,6 @@ public class NuagePoints extends Dessin {
 
     protected Point getPoint(int index) {
         return points.get(index);
-    }
-
-    protected ArrayList<Point> getArrayPts(){
-        return points;
     }
 
     @Override
@@ -89,9 +86,9 @@ public class NuagePoints extends Dessin {
             return false;
         }
 
-        for(int i=0; i<nbPoints; i++){
+        for (int i = 0; i < nbPoints; i++) {
             boolean ptInArray = points.contains(pts.getPoint(i));
-            if(!ptInArray){
+            if (!ptInArray) {
                 return false;
             }
         }

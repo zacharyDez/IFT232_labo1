@@ -51,10 +51,10 @@ public class Ligne extends Dessin {
         // verifier coordonnees des deux objets
         // point equals override to check coordinates of points
         // line is still equal if origin and destination points are different
-        if ((p1.equals(l.p1) && p2.equals(l.p2)) || (p1.equals(l.p2) && p2.equals(l.p1))){
+        if ((p1.equals(l.p1) && p2.equals(l.p2)) || (p1.equals(l.p2) && p2.equals(l.p1))) {
             return true;
         }
-            return false;
+        return false;
     }
 
 }

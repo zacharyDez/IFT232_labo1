@@ -33,7 +33,6 @@ public class Polygone extends Dessin {
         ptsSommets.lire(reader);
     }
 
-    ;
 
     // le string d'un polygone doit presenter les lignes d'un sommet a l'autre
     public String toString() {
