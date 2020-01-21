@@ -37,6 +37,8 @@ public class Polygone extends Dessin {
         int nbPoints = ptsSommets.getNbPoints();
         String msg = "";
         for (int i = 0; i < nbPoints; i++) {
+            // dernier sommet doit rejoindre le premier
+            // erreur generer pour le dernier element
             try {
                 Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(i+1));
                 msg += l.toString() + "\n";
@@ -45,7 +47,7 @@ public class Polygone extends Dessin {
                 msg += l.toString() + "\n";
             }
         }
-        return msg+="\n";
+        return msg;
     }
 
 }

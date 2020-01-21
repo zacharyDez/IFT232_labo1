@@ -54,7 +54,7 @@ public class NuagePoints extends Dessin {
                 break;
             }
         }
-        return msg+="\n";
+        return msg;
     }
 
     public int getNbPoints() {
