@@ -2,8 +2,6 @@ package labo1;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public abstract class GeomCompose extends Dessin {
@@ -14,15 +12,6 @@ public abstract class GeomCompose extends Dessin {
         nbDessins = 0;
         dessins = new ArrayList<Dessin>();
     }
-
-    // creer un nouveau objet dont le type est defini
-    // selon une valeur de -1 a -4
-    protected Map<Integer, Dessin> dessinsTypes = new HashMap<Integer, Dessin>() {{
-        put(-1, new Point());
-        put(-2, new Ligne());
-        put(-3, new NuagePoints());
-        put(-4, new Polygone());
-    }};
 
     /*
     on doit seulement comparer le meme type de dessin
