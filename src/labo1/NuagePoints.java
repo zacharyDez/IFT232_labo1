@@ -65,5 +65,39 @@ public class NuagePoints extends Dessin {
         return points.get(index);
     }
 
+    protected ArrayList<Point> getArrayPts(){
+        return points;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // si object comparer avec lui-meme, retourner vrai
+        if (o == this) {
+            return true;
+        }
+
+        // verifier si l'objet est de type point
+        if (!(o instanceof Ligne)) {
+            return false;
+        }
+
+        // cast Object to Point
+        NuagePoints pts = (NuagePoints) o;
+
+        // check if nbPoints of polygons is not the same
+        if (pts.getNbPoints() != nbPoints) {
+            return false;
+        }
+
+        for(int i=0; i<nbPoints; i++){
+            boolean ptInArray = points.contains(pts.getPoint(i));
+            if(!ptInArray){
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }
 

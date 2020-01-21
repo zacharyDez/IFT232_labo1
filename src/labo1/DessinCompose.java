@@ -36,9 +36,16 @@ public class DessinCompose extends Dessin {
                 Dessin d = dessinsTypes.get(reader.nextInt());
                 d.lire(reader);
                 dessins.add(d);
-                //if(!dessins.contains(d)){
-                // dessins.add(d);
-                //}
+
+                // check if dessin already in list
+                // calls specific dessin equals methods
+                // must only compare same types
+                try{
+                    if(!dessins.contains(d)){
+                        dessins.add(d);
+                    }
+                } catch (ClassCastException e){};
+
             } catch (NoSuchElementException e){
                 nbDessins = i+1;
                 break;

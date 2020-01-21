@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Polygone extends Dessin {
     private NuagePoints ptsSommets;
 
-    public Polygone(){
+    public Polygone() {
         ptsSommets = new NuagePoints();
     }
 
@@ -14,11 +14,12 @@ public class Polygone extends Dessin {
     public void dessiner(Graphics2D graph) {
         int nbPoints = ptsSommets.getNbPoints();
         // premier element doit dessiner ligne avec dernier aussi
-        for(int i=0; i<nbPoints; i++){
+        for (int i = 0; i < nbPoints; i++) {
             // last element will raise index out of bounds
-            try{
-            Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(i+1));
-            l.dessiner(graph);} catch (IndexOutOfBoundsException e){
+            try {
+                Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(i + 1));
+                l.dessiner(graph);
+            } catch (IndexOutOfBoundsException e) {
                 // dessiner ligne entre premier et dernier point
                 Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(0));
                 l.dessiner(graph);
@@ -28,9 +29,11 @@ public class Polygone extends Dessin {
     }
 
     @Override
-    public void lire(Scanner reader){
+    public void lire(Scanner reader) {
         ptsSommets.lire(reader);
-    };
+    }
+
+    ;
 
     // le string d'un polygone doit presenter les lignes d'un sommet a l'autre
     public String toString() {
@@ -40,7 +43,7 @@ public class Polygone extends Dessin {
             // dernier sommet doit rejoindre le premier
             // erreur generer pour le dernier element
             try {
-                Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(i+1));
+                Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(i + 1));
                 msg += l.toString() + "\n";
             } catch (IndexOutOfBoundsException e) {
                 Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(0));
@@ -48,6 +51,25 @@ public class Polygone extends Dessin {
             }
         }
         return msg;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // si object comparer avec lui-meme, retourner vrai
+        if (o == this) {
+            return true;
+        }
+
+        // verifier si l'objet est de type point
+        if (!(o instanceof Ligne)) {
+            return false;
+        }
+
+        // cast Object to Point
+        Polygone p = (Polygone) o;
+
+        // Polygones are equal if summits matches
+        return ptsSommets.equals(p.ptsSommets);
     }
 
 }
