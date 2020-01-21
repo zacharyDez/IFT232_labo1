@@ -16,18 +16,26 @@ public class DessinCompose extends Dessin {
         put(-4, new Polygone());
     }};
 
-    // use to compare only same type of dessins
-    // when checking if already in list
-    // must only compare same types
+    /*
+    on doit seulement comparer le meme type de dessin
+    comparer un enfant de dessin avec un autre type d'enfant force
+    l'objet comparer a etre caster dans celui de base.
+
+    Ceci leve une erreur lorsque le type ne correspond pas.
+    */
     private ArrayList<Dessin> filterDessinByType(Dessin d) {
+
         ArrayList<Dessin> filteredDessins = new ArrayList<Dessin>();
+
         for (int j = 0; j < dessins.size(); j++) {
             Dessin toCheckDessin = dessins.get(j);
             if (toCheckDessin.getClass() == d.getClass()) {
                 filteredDessins.add(toCheckDessin);
             }
         }
+
         return filteredDessins;
+
     }
 
 
@@ -47,14 +55,14 @@ public class DessinCompose extends Dessin {
     public void lire(Scanner reader) {
 
         nbDessins = reader.nextInt();
+
         for (int i = 0; i < nbDessins; i++) {
             try {
                 Dessin d = dessinsTypes.get(reader.nextInt());
                 d.lire(reader);
 
-                // calls specific dessin equals methods
-                // enables only adding once same drawing in file
-                if(!filterDessinByType(d).contains(d)){
+                // appel method equals specific au dessin sur la liste des dessins
+                if (!filterDessinByType(d).contains(d)) {
                     dessins.add(d);
                 }
 
@@ -67,6 +75,7 @@ public class DessinCompose extends Dessin {
 
     public String toString() {
         String msg = "";
+
         for (int i = 0; i < nbDessins; i++) {
             try {
                 msg += dessins.get(i).toString() + "\n";
@@ -74,6 +83,7 @@ public class DessinCompose extends Dessin {
                 break;
             }
         }
+
         return msg;
     }
 

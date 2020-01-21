@@ -64,10 +64,10 @@ public class Polygone extends Dessin {
             return false;
         }
 
-        // cast Object to Point
+        // cast Objet a Polygone
         Polygone p = (Polygone) o;
 
-        // Polygones are equal if summits matches
+        // Polygone sont equivalent si leur sommets sont les memes
         return ptsSommets.equals(p.ptsSommets);
     }
 

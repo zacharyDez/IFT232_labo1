@@ -24,8 +24,8 @@ public class NuagePoints extends Dessin {
 
     @Override
     public void lire(Scanner reader) {
-        // must check if number if negative before creating new points
-        // edge case generated when number of points stated exceeds actual
+        // doit verifier que nextInt n'est pas negatif avant de creer prochain points
+        // cas d'exception lorsque nbre de points declare dans fichier excede nbre points actuels
         Pattern negInt = Pattern.compile("-+[1-4]");
         nbPoints = reader.nextInt();
         for (int i = 0; i < nbPoints; i++) {
@@ -78,10 +78,10 @@ public class NuagePoints extends Dessin {
             return false;
         }
 
-        // cast Object to Point
+        // Objet general doit etre caster en NuagePoints
         NuagePoints pts = (NuagePoints) o;
 
-        // check if nbPoints of polygons is not the same
+        // polygone ne sont pas egaux si leur nombrede points ne sont pas egaux
         if (pts.getNbPoints() != nbPoints) {
             return false;
         }

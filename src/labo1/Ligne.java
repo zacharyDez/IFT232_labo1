@@ -40,17 +40,16 @@ public class Ligne extends Dessin {
             return true;
         }
 
-        // verifier si l'objet est de type point
+        // verifier si l'objet est de type Ligne
         if (!(o instanceof Ligne)) {
             return false;
         }
 
-        // cast Object to Point
+        // cast Object a Point
         Ligne l = (Ligne) o;
 
         // verifier coordonnees des deux objets
-        // point equals override to check coordinates of points
-        // line is still equal if origin and destination points are different
+        // ligne est aussi egal si l'origine et la destination des points sont inversees
         if ((p1.equals(l.p1) && p2.equals(l.p2)) || (p1.equals(l.p2) && p2.equals(l.p1))) {
             return true;
         }

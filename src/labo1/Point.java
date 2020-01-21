@@ -47,8 +47,7 @@ public class Point extends Dessin {
         return "(" + x + "," + y + ")";
     }
 
-    // to override, must pass Object to equals
-    // cast afterwards
+    // pour override, doit caster objet en type comparer
     @Override
     public boolean equals(Object o) {
         // si object comparer avec lui-meme, retourner vrai
@@ -61,7 +60,7 @@ public class Point extends Dessin {
             return false;
         }
 
-        // cast Object to Point
+        // cast objet a Point
         Point p = (Point) o;
 
         // verifier coordonnees des deux objets

@@ -12,9 +12,6 @@ public class Labo1Main extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-
-
-
     /*
      * Cette fonction initialise le dessin. Elle lit un Point
      * au clavier ou � partir du fichier.
@@ -33,8 +30,6 @@ public class Labo1Main extends JFrame {
 
 
     }
-
-
 
 
     /*
@@ -93,7 +88,6 @@ public class Labo1Main extends JFrame {
     }
 
     public static void main(String[] args) {
-
 
         /*
          * Mise en file de l'ex�cution de l'interface graphique pour le
