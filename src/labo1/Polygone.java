@@ -36,7 +36,7 @@ public class Polygone extends Dessin {
     public String toString() {
         int nbPoints = ptsSommets.getNbPoints();
         String msg = "";
-        for (int i = 0; i < nbPoints-1; i++) {
+        for (int i = 0; i < nbPoints; i++) {
             try {
                 Ligne l = new Ligne(ptsSommets.getPoint(i), ptsSommets.getPoint(i+1));
                 msg += l.toString() + "\n";
@@ -45,7 +45,7 @@ public class Polygone extends Dessin {
                 msg += l.toString() + "\n";
             }
         }
-        return msg;
+        return msg+="\n";
     }
 
 }
